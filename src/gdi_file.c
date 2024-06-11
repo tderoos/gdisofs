@@ -27,8 +27,8 @@
 #include "gdi_file.h"
 
 /* enforce sane limits */
-#define MAX_TRACKS 16
-#define MAX_TRACK_FIELDS 16
+#define MAX_TRACKS 32
+#define MAX_TRACK_FIELDS 32
 
 void parse_gdi(gdi_info *outp, char const *path) {
     long file_sz;
@@ -89,6 +89,7 @@ void parse_gdi(gdi_info *outp, char const *path) {
         cur_track->ctrl = atoi(track_info[2]);
         cur_track->sector_size = atoi(track_info[3]);
         cur_track->path = g_build_filename(gdi_dir, track_info[4], NULL);
+	printf("%12d : %s\n", cur_track->lba_start * cur_track->sector_size, cur_track->path);
 
         g_strfreev(track_info);
     }

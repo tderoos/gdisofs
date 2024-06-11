@@ -25,7 +25,7 @@
 
 #define GDI_DATA_TRACK 3
 
-#define GDI_SECONDARY_DATA_TRACK 5
+#define GDI_SECONDARY_DATA_TRACK 29
 
 typedef struct _gdi_track {
     char *path;
